@@ -1,17 +1,20 @@
-import { action, observable } from "mobx"
-import Count1 from "model/Count1";
-import Count2 from "model/Count2";
-import CounterModel from "model/CounterModel"
+import ComputeModel from "model/ComputeModel";
+import KubernetesModel from "model/KubernetesModel";
+import ExecuteApi from "repository/api";
 
 class CounterStore {
-    counterModel = new CounterModel();
-    count1Model = new Count1();
-    count2Model = new Count2();
+    private kubernetesModel = new KubernetesModel();
+    private computeModel = new ComputeModel();
 
     constructor() {
         console.log("hello");
     }
-
+    public getKubernetesModel = ():KubernetesModel=>{
+        return this.kubernetesModel;
+    }
+    public getComputeModel = ():ComputeModel =>{
+        return this.computeModel
+    }
 }
 
 export default CounterStore;

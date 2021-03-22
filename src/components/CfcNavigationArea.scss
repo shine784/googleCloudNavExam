@@ -1,3 +1,9 @@
 .cfc-navigation-area{
-
+    
+    li{
+        height: 40px;
+        &:hover{
+            background-color: rgb(200, 231, 252);   
+        }
+    }
 }

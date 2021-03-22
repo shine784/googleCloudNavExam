@@ -7,7 +7,9 @@ interface Props{
 
 const CfcSectionTitle = observer((props:Props) => {
     return (
-        <h1 className="cfc-section-title">{props.title}</h1>
+        <div className="cfc-section-title">
+        <h3 >{props.title}</h3>
+        </div>
     )
 })
 

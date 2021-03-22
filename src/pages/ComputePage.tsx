@@ -4,9 +4,11 @@ import CfcNavigationArea from "components/CfcNavigationArea";
 import CfcPanel from "components/CfcPanel";
 import CfcPanelBody from "components/CfcPanelBody";
 import CfcSectionTitle from "components/CfcSectionTitle";
+import { useStore } from "index";
 import { observer } from "mobx-react-lite";
+import ComputeModel from "model/ComputeModel";
 import React from 'react';
-import { Route,RouteComponentProps, withRouter  } from "react-router";
+import { Route,RouteComponentProps, Switch, withRouter  } from "react-router";
 interface Props {
     
 }
@@ -14,16 +16,21 @@ interface PathParamsProps {
     id: string;
 }
 const ComputePage:React.FunctionComponent<Props & RouteComponentProps<PathParamsProps>> = observer(({match}) =>{
+    const store = useStore();
+    const computeModel: ComputeModel = store.getComputeModel();
+    console.log(match.params);
     return (
         <CfcContainer>
-            <CfcPanel pos="left">
+            <CfcPanel pos="left" >
                 <CfcSectionTitle title="Compute Engine"></CfcSectionTitle>
-                <CfcNavigationArea list={[{text:"메뉴01",path:"menu01"}, {text:"메뉴02",path:"menu02"}, {text:"메뉴03",path:"menu03"}]}></CfcNavigationArea>
+                <CfcNavigationArea list={computeModel.computeList}></CfcNavigationArea>
             </CfcPanel>
             <CfcPanel pos="right" >
-                <Route path={`${match.path}/menu01`} component={CfcPanelBody} />
-                <Route path={`${match.path}/menu02`} component={CfcPanelBody} />
-                <Route path={`${match.path}/menu03`} component={CfcPanelBody} />
+                <Switch>
+                    {computeModel.computeList.map((d, i) => {
+                        return <Route path={`${match.path}/${d.path}`} component={CfcPanelBody} />
+                    })}
+                </Switch>           
             </CfcPanel>
         </CfcContainer>
     )

@@ -15,16 +15,17 @@ const App:React.FC = () => (
         Google Cloud Services from: Lee kun Hee
       </h1>
       <ul>
-        <li>
+        <li key="1">
           <Link to="/">default</Link>
         </li>
-        <li>
-          <Link to="/compute">compute</Link>
+        <li key="2">
+          <Link to="/compute/menu01">compute</Link>
         </li>
-        <li>
-          <Link to="/kubernetes">kubernetes</Link>
+        <li key="3">
+          <Link to="/kubernetes/menu01">kubernetes</Link>
         </li>
       </ul>
+        <Route exact path="/" component={ComputePage} />
         <Route path="/compute" component={ComputePage} />
         <Route path="/kubernetes" component={KubernetesPages} />
     </>

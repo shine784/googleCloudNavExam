@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import { BrowserRouter } from 'react-router-dom';
 
 import App from 'components/App';
-//import "./styles.css";
+import "./styles.css";
 import "./styles.scss";
 import CounterStore from 'store/CounterStore';
 
@@ -21,4 +21,8 @@ ReactDOM.render(
   </React.StrictMode>
   ,
   document.getElementById('app'));
+
+  window.onresize = (event: Event)=> {
+    console.log('Resizing...',event)
+  };
 
