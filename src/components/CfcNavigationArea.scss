@@ -7,3 +7,13 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .cfc-navigation-area{
+        li{
+            float: left;
+            height: 20px;
+            font-size: 5pt;
+        }
+    }
+}

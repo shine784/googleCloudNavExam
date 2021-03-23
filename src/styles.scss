@@ -16,3 +16,17 @@ li{
 a{
   text-decoration: none;
 }
+
+.gnv > li{
+  border: 1px solid rgb(40, 40, 240);
+ }
+
+@media screen and (max-width: 768px) {
+  h1{
+      height: 15px;
+      font-size: 3pt;
+  }
+  .gnv > li{
+    float: left;
+   }
+}

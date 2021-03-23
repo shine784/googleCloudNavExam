@@ -1,3 +1,10 @@
 .cfc-section-title {
     border-bottom: 1px solid grey;
 }
+
+@media screen and (max-width: 768px) {
+    .cfc-section-title h3{
+        height: 10px;
+        font-size: 7pt;
+    }
+}

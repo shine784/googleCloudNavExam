@@ -5,7 +5,7 @@
     overflow: visible;
     position: relative;
     min-height:0;
-    border: 1px solid grey;
+    border: 1px solid rgb(214, 214, 214);
     height:100%;
     &.left{
         flex:0 1 auto;
@@ -17,6 +17,16 @@
 }
 
 
-.cfc-panel-hidden{
-    
+@media screen and (max-width: 768px) {
+    .cfc-panel.left{
+      //display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+@media screen and (max-width: 768px) {
+    .cfc-panel.left{
+      //display: none;
+    }
 }

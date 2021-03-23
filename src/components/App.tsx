@@ -14,7 +14,8 @@ const App:React.FC = () => (
       <h1>
         Google Cloud Services: Lee kun Hee
       </h1>
-      <ul>
+      <div>
+      <ul className="gnv">
         <li key="1">
           <Link to="/">default</Link>
         </li>
@@ -25,6 +26,7 @@ const App:React.FC = () => (
           <Link to="/kubernetes/cluster">kubernetes</Link>
         </li>
       </ul>
+      </div>
         <Route path="/compute" component={ComputePage} />
         <Route path="/kubernetes" component={KubernetesPages} />
     </>

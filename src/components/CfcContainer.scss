@@ -5,3 +5,14 @@
     background-color: #ededed;
     height: 100%;
 }
+@media screen and (max-width: 768px) {
+    .cfc-container{
+        display: flex;
+    }
+  }
+  
+@media screen and (max-width: 768px) {
+    .cfc-container{
+        display: block;
+    }
+}
