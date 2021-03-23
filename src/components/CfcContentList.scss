@@ -1,6 +1,7 @@
 .cfc-content-list{
     li {
-        height:30px;
+        min-height:30px;
+        height: auto;
         border: 1px solid rgb(39, 15, 255);
         background-color: blanchedalmond;
     }

@@ -3,7 +3,7 @@ import React from 'react';
 import "./CfcContainer.scss";
 const CfcContainer = observer((prop) => {
     return (
-        <div className="cfc-container">
+        <div data-testid="cfc-container" className="cfc-container">
             {prop.children}
         </div>
     )

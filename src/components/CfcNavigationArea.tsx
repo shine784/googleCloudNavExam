@@ -14,7 +14,7 @@ interface Props {
 interface PathParamsProps {
     id: string;
 }
-//onClick={(e: React.MouseEvent)=>{itemClinkHandler(e)}}
+
 const CfcNavigationArea: React.FunctionComponent<Props & RouteComponentProps<PathParamsProps>
 > = observer(({ match, list }) => {
     //console.log(match, list);

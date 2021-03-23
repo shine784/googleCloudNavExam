@@ -12,7 +12,7 @@ const CfcContentList = observer(({list}:Props) => {
     //const store = useStore();
     //const kubernetesModel = store.getKubernetesModel(); 
     return (
-        <div className="cfc-content-list">
+        <div data-testid="cfc-content-list" className="cfc-content-list">
             <ul>
             {
             list.map((d:any,i:number)=>{
