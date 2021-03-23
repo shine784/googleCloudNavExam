@@ -8,17 +8,19 @@ import useCfcPanelBody from "hooks/useCfcPanelBody";
 import CfcContentList from "./CfcContentList";
 
 interface Props {
-    children: React.ReactNode
+    //children: React.ReactNode
 }
 interface PathParamsProps {
 
 }
 
-const CfcPanelBody:React.FunctionComponent<Props & RouteComponentProps<PathParamsProps>> = observer(({match,children}) => {
+const CfcPanelBody:React.FunctionComponent<Props & RouteComponentProps<PathParamsProps>> = observer(({match}) => {
     const {getDetail} = useCfcPanelBody();
     const store = useStore();
-    const kubernetesModel = store.getKubernetesModel(); 
-    console.log(match);
+    const PanelBodyModel = store.getPanelBodyModel();//model을 PanelBody용으로 만들어 써보는건 어떨까?
+    const list= PanelBodyModel.detailsArray;
+    const title= PanelBodyModel.selectedTitle;
+    //console.log(match);
     useEffect(() => {
         (async () => {
             await getDetail(match.path);
@@ -27,8 +29,8 @@ const CfcPanelBody:React.FunctionComponent<Props & RouteComponentProps<PathParam
 
     return (
         <div className="cfc-panel-body">
-            <CfcActionBar title={kubernetesModel.selectedTitle}/>
-            <CfcContentList list={kubernetesModel.detailsArray}/>
+            <CfcActionBar title={title}/>
+            <CfcContentList list={list}/>
         </div>
     )
 })

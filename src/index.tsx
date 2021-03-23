@@ -5,10 +5,10 @@ import { BrowserRouter } from 'react-router-dom';
 import App from 'components/App';
 import "./styles.css";
 import "./styles.scss";
-import CounterStore from 'store/CounterStore';
+import DomainStore from 'store/DomainStore';
 
-const store = new CounterStore;
-export const StoreContext = React.createContext<CounterStore>(store);
+const store = new DomainStore;
+export const StoreContext = React.createContext<DomainStore>(store);
 export const useStore = () => React.useContext(StoreContext);
 
 ReactDOM.render(

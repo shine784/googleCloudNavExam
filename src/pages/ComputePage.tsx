@@ -8,29 +8,30 @@ import { useStore } from "index";
 import { observer } from "mobx-react-lite";
 import ComputeModel from "model/ComputeModel";
 import React from 'react';
-import { Route,RouteComponentProps, Switch, withRouter  } from "react-router";
+import { Route, RouteComponentProps, Switch, withRouter } from "react-router";
 interface Props {
-    
+
 }
 interface PathParamsProps {
     id: string;
 }
-const ComputePage:React.FunctionComponent<Props & RouteComponentProps<PathParamsProps>> = observer(({match}) =>{
+const ComputePage: React.FunctionComponent<Props & RouteComponentProps<PathParamsProps>> = observer(({ match }) => {
     const store = useStore();
     const computeModel: ComputeModel = store.getComputeModel();
-    console.log(match.params);
+    const list = computeModel.computeList;
+    //console.log(match.params);
     return (
         <CfcContainer>
             <CfcPanel pos="left" >
                 <CfcSectionTitle title="Compute Engine"></CfcSectionTitle>
-                <CfcNavigationArea list={computeModel.computeList}></CfcNavigationArea>
+                <CfcNavigationArea list={list}></CfcNavigationArea>
             </CfcPanel>
             <CfcPanel pos="right" >
                 <Switch>
-                    {computeModel.computeList.map((d, i) => {
-                        return <Route path={`${match.path}/${d.path}`} component={CfcPanelBody} />
+                    {list.map((d, i) => {
+                        return <Route key={i} path={`${match.path}/${d.path}/`} component={CfcPanelBody} />
                     })}
-                </Switch>           
+                </Switch>
             </CfcPanel>
         </CfcContainer>
     )

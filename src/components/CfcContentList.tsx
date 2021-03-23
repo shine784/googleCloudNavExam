@@ -1,8 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React, { useEffect } from 'react';
 import "./CfcContentList.scss";
-import { Link, RouteComponentProps, withRouter } from "react-router-dom";
-import { useStore } from "index";
 interface ABC{
     title:String
 }

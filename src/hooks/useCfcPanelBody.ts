@@ -1,12 +1,11 @@
 import { useStore } from "index";
-import React from "react";
 
 const useCfcPanelBody = () => {
     const store = useStore();
     
     const getDetail = async(path:string)=>{
-        const num = Number(path[path.length-1]);
-        await store.getKubernetesModel().execeuteAPI(num);
+        const url = path.split("/")[2];
+        await store.getPanelBodyModel().execeuteAPI(url);
     }
     return({
         getDetail:getDetail,

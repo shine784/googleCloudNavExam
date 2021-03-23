@@ -19,19 +19,20 @@ interface PathParamsProps {
 const KubernetesPages: React.FunctionComponent<Props & RouteComponentProps<PathParamsProps>> = observer(({ match }) => {
     const store = useStore();
     const kubernetesModel: KubernetesModel = store.getKubernetesModel();
-    console.log(match.params);
+    const list = kubernetesModel.kubernetesList;
+    //console.log(match.params);
     return (
         <CfcContainer>
             <CfcPanel pos="left" >
                 <CfcSectionTitle title="Kubernetes Engine"></CfcSectionTitle>
-                <CfcNavigationArea list={kubernetesModel.kubernetesList}></CfcNavigationArea>
+                <CfcNavigationArea list={list}></CfcNavigationArea>
             </CfcPanel>
             <CfcPanel pos="right" >
                 <Switch>
-                    {kubernetesModel.kubernetesList.map((d, i) => {
-                        return <Route path={`${match.path}/${d.path}`} component={CfcPanelBody} />
+                    {list.map((d, i) => {
+                        return <Route key={i} path={`${match.path}/${d.path}`} component={CfcPanelBody} />
                     })}
-                </Switch>           
+                </Switch>
             </CfcPanel>
         </CfcContainer>
     )
