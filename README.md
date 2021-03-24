@@ -24,6 +24,8 @@ npm run test
 
 
 # src/ 디렉토리구조
+```
+src
 │   index.tsx
 │   styles.css
 │   styles.scss
@@ -63,3 +65,10 @@ npm run test
 │
 └───store
         DomainStore.ts
+```
+
+# 768px 초과
+![텍스트](public/images/exam01.png)
+
+# 768px 이하
+![텍스트](public/images/exam02.png)
