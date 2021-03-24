@@ -11,9 +11,6 @@ interface Props {
 
 const App:React.FC = () => (
     <>
-      <h1>
-        Google Cloud Services: Lee kun Hee
-      </h1>
       <div>
       <ul className="gnv">
         <li key="1">

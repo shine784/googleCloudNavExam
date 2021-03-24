@@ -18,9 +18,9 @@ interface PathParamsProps {
 const CfcNavigationArea: React.FunctionComponent<Props & RouteComponentProps<PathParamsProps>
 > = observer(({ match, list }) => {
     //console.log(match, list);
-    const {itemClinkHandler} = useCfcNavigationArea();
+    //const {itemClinkHandler} = useCfcNavigationArea();
     return (
-        <div className="cfc-navigation-area">
+        <div data-testid="cfc-navigation-area" className="cfc-navigation-area">
             <ul>
                 {
                     list.map((d, i) => {

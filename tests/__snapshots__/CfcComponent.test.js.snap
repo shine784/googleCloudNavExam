@@ -49,6 +49,44 @@ exports[`CfcContentList component 1`] = `
 </div>
 `;
 
+exports[`CfcNavigationArea component 1`] = `
+<div
+  class="cfc-navigation-area"
+  data-testid="cfc-navigation-area"
+>
+  <ul>
+    <li>
+      <a
+        href="//qqq"
+      >
+        qqq
+      </a>
+    </li>
+    <li>
+      <a
+        href="//www"
+      >
+        www
+      </a>
+    </li>
+    <li>
+      <a
+        href="//eee"
+      >
+        eee
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`CfcPanel component 1`] = `
+<div
+  class="cfc-panel undefined"
+  data-testid="cfc-panel"
+/>
+`;
+
 exports[`CfcSectionTitle component 1`] = `
 <h3>
   muyaho

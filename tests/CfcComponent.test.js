@@ -4,6 +4,8 @@ import CfcActionBar from "../src/components/CfcActionBar";
 import CfcSectionTitle from "../src/components/CfcSectionTitle";
 import CfcContainer from "../src/components/CfcContainer";
 import CfcPanel from "../src/components/CfcPanel";
+import CfcNavigationArea from "../src/components/CfcNavigationArea";
+import { BrowserRouter as Router } from 'react-router-dom';
 import "@testing-library/jest-dom";
 //import CfcNavigationArea from '../src/components/CfcNavigationArea'
 import { render, fireEvent, wrapper } from "@testing-library/react";
@@ -13,7 +15,20 @@ const dummyItems = [
 	{ title: "def", path: "def" },
 	{ title: "ghi", path: "ghi" },
 ];
-beforeAll(() => {});
+
+const dummyNav = [
+	{ text: "qqq", path: "qqq" },
+	{ text: "www", path: "www" },
+	{ text: "eee", path: "eee" },
+];
+
+const dummyMatch = {
+	path:"",
+	url:""
+}
+beforeAll(() => {
+	global.window = { location: { pathname: '' } };
+});
 
 test("CfcContentList component", () => {
 	const { getByTestId, getByText,  container } = render(<CfcContentList list={dummyItems} />);
@@ -45,5 +60,14 @@ test("CfcContainer component", () => {
 });
 
 test("CfcPanel component", () => {
-	const { getByText, baseElement, container } = render(<CfcPanel />);
+	const { getByTestId,  container } = render(<CfcPanel />);
+	expect(getByTestId("cfc-panel")).toMatchSnapshot();
+});
+
+test("CfcNavigationArea component", () => {
+	const { getByTestId,getByText} = render(<Router><CfcNavigationArea match={dummyMatch} list={dummyNav} /></Router>);
+	const a = getByText(dummyNav[0].text);//qqq
+	//fireEvent.click(a)
+	//expect(window.location.pathname).toEqual('/qqq');
+	expect(getByTestId("cfc-navigation-area")).toMatchSnapshot();
 });

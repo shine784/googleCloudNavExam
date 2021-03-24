@@ -14,7 +14,7 @@ const CfcPanel = observer((props:Props) => {
         [`${props.pos}`]: true,
       });
     return (
-        <div className={panelClass}>
+        <div data-testid="cfc-panel" className={panelClass}>
             {props.children}
         </div>
     )
