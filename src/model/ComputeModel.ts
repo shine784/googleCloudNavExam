@@ -1,6 +1,9 @@
 import { action, makeAutoObservable, makeObservable, observable, runInAction } from "mobx"
 import ExecuteApi from "repository/api";
 export default class ComputeModel {
+    constructor() {
+        makeAutoObservable(this);
+    }
     public computeList =
         [
             { text: "클러스터", path: "cluster" },
@@ -12,11 +15,4 @@ export default class ComputeModel {
             { text: "객체 브라우져", path: "inctance" },
             { text: "컨테이너로 마이그레이션", path: "migrate" },
         ];
-
-    public selectedTitle: String = "empty";
-    public detailsArray: any = [];
-
-    constructor() {
-        makeAutoObservable(this);
-    }
 }

@@ -8,37 +8,40 @@ import "@testing-library/jest-dom";
 //import CfcNavigationArea from '../src/components/CfcNavigationArea'
 import { render, fireEvent, wrapper } from "@testing-library/react";
 
+const dummyItems = [
+	{ title: "abc", path: "abc" },
+	{ title: "def", path: "def" },
+	{ title: "ghi", path: "ghi" },
+];
 beforeAll(() => {});
 
 test("CfcContentList component", () => {
-	const { getByTestId, getByText, baseElement, container } = render(
-		<CfcContentList list={[{ title: "123" }, { title: "456" }]} />
-	);
-	expect(getByText("123")).toBeInTheDocument();
-	expect(getByText("456")).toBeInTheDocument();
+	const { getByTestId, getByText,  container } = render(<CfcContentList list={dummyItems} />);
+	expect(getByText(dummyItems[0].title)).toBeInTheDocument();
+	expect(getByText(dummyItems[1].title)).toBeInTheDocument();
 
 	expect(getByTestId("cfc-content-list")).toMatchSnapshot();
 });
 
 test("CfcActionBar component", () => {
-	const { getByText, baseElement, container } = render(<CfcActionBar title="muyaho" />);
+	const { getByText,  container } = render(<CfcActionBar title="muyaho" />);
 	expect(getByText("muyaho")).toBeInTheDocument();
 	expect(getByText("muyaho")).toMatchSnapshot();
 });
 
 test("CfcSectionTitle component", () => {
-	const { getByText, baseElement, container } = render(<CfcSectionTitle title="muyaho" />);
+	const { getByText,  container } = render(<CfcSectionTitle title="muyaho" />);
 	expect(getByText("muyaho")).toBeInTheDocument();
 	expect(getByText("muyaho")).toMatchSnapshot();
 });
 
 test("CfcContainer component", () => {
-	const { getByTestId,getByText, baseElement, container } = render(
+	const { getByTestId, getByText,  container } = render(
 		<CfcContainer>
-			<CfcContentList list={[{ title: "123" }, { title: "456" }]} />
+			<CfcContentList list={dummyItems} />
 		</CfcContainer>
 	);
-    expect(getByTestId("cfc-container")).toMatchSnapshot();
+	expect(getByTestId("cfc-container")).toMatchSnapshot();
 });
 
 test("CfcPanel component", () => {

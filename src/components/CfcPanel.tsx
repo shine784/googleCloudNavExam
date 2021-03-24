@@ -9,9 +9,6 @@ interface Props{
 }
 
 const CfcPanel = observer((props:Props) => {
-    const style = {
-        
-    }
     const panelClass = classNames({
         "cfc-panel": true,
         [`${props.pos}`]: true,

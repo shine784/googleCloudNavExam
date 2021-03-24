@@ -9,7 +9,7 @@ import DomainStore from 'store/DomainStore';
 
 const store = new DomainStore;
 export const StoreContext = React.createContext<DomainStore>(store);
-export const useStore = () => React.useContext(StoreContext);
+export const useStore = () => React.useContext(StoreContext);//mobx 권장패턴
 
 ReactDOM.render(
   <React.StrictMode>
@@ -23,6 +23,6 @@ ReactDOM.render(
   document.getElementById('app'));
 
   window.onresize = (event: Event)=> {
-    console.log('Resizing...',event)
+    //console.log('Resizing...',event)
   };
 
