@@ -28,7 +28,7 @@ src
 │   styles.css
 │   styles.scss
 │
-├───components /*공통으로 사용되는 coponent들 입니다*/
+├───components /*공통으로 사용되는 component들 입니다*/
 │       App.tsx
 │       CfcActionBar.scss
 │       CfcActionBar.tsx
